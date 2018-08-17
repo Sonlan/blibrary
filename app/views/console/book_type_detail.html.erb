@@ -1,0 +1,94 @@
+<body>
+  <div class="container" style="margin-top:30px">
+      <div class = "row">
+        <div class="col-sm-3">
+        <%= image_tag(@book_type.img_paths, alt: "Edit Entry", class: "img-responsive") %>
+        </div>
+          <div class="col-sm-9">
+            <h2><%= @book_type.book_name %></h2>
+            <p><%= @book_type.introduction %></p>
+            <br>
+          </div>
+      </div>
+      <div class="row">
+        <h2>目录</h2>
+      </div>
+      <div class="row">
+        <h8><%= @book_type.catalog %></h8>
+      </div>
+      <div class="row">
+        <h2>书籍列表</h2>
+        <!-- 按钮：用于打开模态框 -->
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">
+          新增书籍
+        </button>
+      </div>
+      <div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>SN码</th>
+              <th>上架时间</th>
+              <th>热度</th>
+              <th>状态</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @books.each do |book| %>
+              <tr>
+                <td><%= book.serial_code %></td>
+                <td><%= book.create_time %></td>
+                <td><%= book.borrow_times %></td>
+                <% if book.status == 0 %>
+                  <td>
+                    <%= link_to "下架",controller: 'console', action: 'remove_book', id: book,book_type_id: @book_type.id%>
+                  </td>
+                <% end %>
+                <% if book.status != 0 %>
+                  <td><span>待还</span></td>
+                <% end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <div class="row">
+        <div class="col-sm-5 col-center-block" >
+          <%= paginate @books%>
+        </div>
+      </div>
+
+      <!-- 模态框 -->
+      <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+              <h4 class="modal-title">新增书籍</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- 模态框主体 -->
+            <div class="modal-body">
+              <%= form_tag('/console/add_book') do %>
+                <input id='book_type-_d' name="book_type_id" value = "<%= @book_type.id %>" type="hidden">
+                <label for="serial_code">书籍SN</label>
+                <input id="serial_code" name="serial_code" placeholder="输入 SN码 " type="text" />
+                <br>
+                <button class="btn btn-info" type="submit">确认</button>
+              <% end %>
+            </div>
+
+            <!-- 模态框底部 -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <p id="notice"><%= notice %></p>
+</body>
+</html

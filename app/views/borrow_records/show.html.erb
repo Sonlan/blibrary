@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @borrow_record.user_id %>
+</p>
+
+<p>
+  <strong>Book:</strong>
+  <%= @borrow_record.book_id %>
+</p>
+
+<p>
+  <strong>Borrow time:</strong>
+  <%= @borrow_record.borrow_time %>
+</p>
+
+<p>
+  <strong>Time limit:</strong>
+  <%= @borrow_record.time_limit %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @borrow_record.status %>
+</p>
+
+<p>
+  <strong>Book name:</strong>
+  <%= @borrow_record.book_name %>
+</p>
+
+<p>
+  <strong>Serial code:</strong>
+  <%= @borrow_record.serial_code %>
+</p>
+
+<p>
+  <strong>User name:</strong>
+  <%= @borrow_record.user_name %>
+</p>
+
+<%= link_to 'Edit', edit_borrow_record_path(@borrow_record) %> |
+<%= link_to 'Back', borrow_records_path %>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>图书管理系统</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand" href="/book_types">导航</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/book_types">书籍检索</a>
+        </li>
+        <% if session[:status].present?%>
+          <li class="nav-item">
+            <a class="nav-link" href="/navbar/my_center">个人中心</a>
+          </li>
+        <%end %>
+        <% if session[:status].present? && session[:user_id]==1%>
+          <li class="nav-item">
+            <a class="nav-link" href="/console/books_manage">控制台</a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <% if session[:status].present?%>
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          系统
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="/navbar/messages">站内信</a>
+          <a class="dropdown-item" href="/navbar/logout">登出</a>
+        </div>
+      </div>
+    <% end %>
+    <% unless session[:status].present?%>
+      <a class="form-inline btn btn-info" href="/auth/bauth">登录</a>
+    <% end %>
+  </nav>
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+if (<%= @status%> == 0){
+  console.log('lala')
+  var div_book_type = $("#div-book-type-"+<%= @book_type.id%>)
+  div_book_type.hide()
+  div_book_type.remove()
+}else {
+  alert("删除异常")
+}

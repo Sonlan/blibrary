@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Book name:</strong>
+  <%= @book_type.book_name %>
+</p>
+
+<p>
+  <strong>Introduction:</strong>
+  <%= @book_type.introduction %>
+</p>
+
+<p>
+  <strong>Img paths:</strong>
+  <%= @book_type.img_paths %>
+</p>
+
+<p>
+  <strong>Catalog:</strong>
+  <%= @book_type.catalog %>
+</p>
+
+<%= link_to 'Edit', edit_book_type_path(@book_type) %> |
+<%= link_to 'Back', book_types_path %>

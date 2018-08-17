@@ -1,0 +1,9 @@
+if (<%= @forbidden %> == 1){
+  alert('操作前请先登录')
+  location.href = '/navbar/to_login'
+}else if (<%= @status%> == 0){
+  var div_book_type = $("#operation-"+<%= @id%>)
+  div_book_type.html("<span>已还书</span>")
+}else {
+  alert("还书异常")
+}

@@ -1,0 +1,6 @@
+development:
+  auth:
+    app_id: 33
+    app_secret: 33
+    get_logout_api: localhost:8080
+	site: https://localhost:8080

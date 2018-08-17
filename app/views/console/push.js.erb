@@ -1,0 +1,6 @@
+if (<%= @status%>==0){
+  alert('催还成功')
+  $("#a-record-item-"+<%= @id%>).html('已催还')
+}
+else
+  alert('催还异常')

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>图书管理系统</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand" href="/book_types">首页</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            书籍管理
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/console/books_manage">书籍检索</a>
+            <a class="dropdown-item" href="/console/add_book_type">新增书籍</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/console/borrow_records_manage">借阅管理</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="/console/users_manage">用户管理</a>
+        </li> -->
+      </ul>
+    </div>
+  </nav>
+
+<%= yield %>
+
+</body>
+</html>

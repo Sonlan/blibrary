@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>图书管理系统</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <%= javascript_include_tag 'login' %>
+    <style>
+      .col-center-block {
+          float: none;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+      }
+      </style>
+  </head>
+
+  <body>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6 col-md-4 col-center-block">
+        <img src="<%= asset_path('logo.jpeg')%>" class="rounded col-center-block" />
+        <%= form_tag('/navbar/login')%>
+          <h2 class="text-muted" style="text-align:center">Sign in to BookMS</h2>
+          <label for="user-name" ><h8>User name or email address</h8></label>
+          <input type="text" name="user_name" class="form-control" id="user-name" placeholder="用户名" required autofocus>
+          <div style="margin-top:5px">
+            <label for="inputPassword" ><h8>Password</h8></label>
+            <a href="#" style="float:right"><h9>Forgot password?</h9></a>
+          </div>
+          <input type="password" name="password" id="password" class="form-control" placeholder="密码" required>
+          <div >
+            <label>
+              <input type="checkbox" value="remember-me">
+              remenber me </label>
+          </div>
+          <button class="btn btn-lg btn-primary btn-block" type="submit" id="btn-sign-in" >Sign in</button>
+
+        <div style="margin-top:5px">
+          <h10>New to BookMS?<h10> <a href="/navbar/register" style="float:right">Create an account</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>

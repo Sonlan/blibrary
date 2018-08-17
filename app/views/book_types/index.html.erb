@@ -1,0 +1,46 @@
+
+<body>
+
+<div class="container" style="margin-top:30px">
+  <div class="row">
+    <div class="col">
+          <form action="/book_types/search">
+            <div class="input-group mb-3 input-group-lg">
+            <div class="input-group-prepend">
+              <span class="input-group-text">书籍检索</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Search" name="book_name" id="input-book-name">
+            <div class="input-group-append">
+              <button class="btn btn-success" type="submit" id="btn-book-search">Go</button>
+            </div>
+            </div>
+        </form>
+    </div>
+  </div>
+  <% @book_types.each do |book_type| %>
+  <div id="div-book-list">
+    <div class = "row">
+      <div class="col-sm-3">
+        <%= image_tag(book_type.img_paths, alt: "Edit Entry", class: "img-responsive") %>
+      </div>
+        <div class="col-sm-7">
+          <%= link_to "#{book_type.book_name}",book_type%>
+          <div class="text">
+          <%= book_type.introduction%>
+          </div>
+          <br>
+        </div>
+    </div>
+  </div>
+  <% end %>
+  <div class="row">
+    <div class="col-sm-5 col-center-block" >
+      <%= paginate @book_types%>
+    </div>
+  </div>
+</div>
+</div>
+
+
+</body>
+</html>

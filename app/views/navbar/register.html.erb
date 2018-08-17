@@ -1,0 +1,26 @@
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6 col-md-4 col-center-block">
+        <%= form_tag('/navbar/signup',remote: true)%>
+        <img src="<%= asset_path('logo.jpeg')%>" class="rounded col-center-block" />
+
+          <h2 class="text-muted" style="text-align:center">Sign up to BookMS</h2>
+
+          <label for="user-name" style="margin-top:5px"><h8>Username</h8></label>
+          <input type="text" name="user_name" class="form-control" id="input-user-name" placeholder="用户名" required autofocus>
+
+          <label for="input-email" style="margin-top:5px"><h8>Email</h8></label>
+          <input type="text" name="email" class="form-control" id="input-email" placeholder="you@example.com" required autofocus>
+
+          <label for="input-password" style="margin-top:5px"><h8>Password</h8></label>
+          <input type="password" name="password" id="input-password" class="form-control" placeholder="密码" required>
+
+          <button type="submit" class="btn btn-lg btn-primary btn-block" id="btn-sign-up" style="margin-top:5px">Sign up</button>
+
+        <div style="margin-top:5px">
+          <h10>Have an account?<h10> <a href="/navbar/to_login" style="float:right">Sign in</a>
+        </div>
+      </div>
+    </div>
+  </div>

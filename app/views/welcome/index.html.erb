@@ -1,0 +1,75 @@
+<!-- <div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Search">
+  <div class="input-group-append">
+    <button class="btn btn-success" type="submit">Go</button>
+   </div>
+</div> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>图书管理系统</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <%= javascript_include_tag 'index' %>
+
+  <style>
+    .col-center-block {
+        float: none;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container" style="margin-top:30px">
+  <div class="row">
+    <div class="col">
+      <div class="input-group mb-3 input-group-lg">
+          <div class="input-group-prepend">
+            <span class="input-group-text">书籍检索</span>
+          </div>
+          <input type="text" class="form-control" placeholder="Search" name="book_name" id="input-book-name">
+          <div class="input-group-append">
+            <button class="btn btn-success" type="submit" id="btn-book-search">Go</button>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div id="div-book-list">
+    <div class = "row">
+      <img src="<%= asset_path('cover.jpeg') %>" class="col-sm-3"/>
+        <div class="col-sm-9">
+          <a href="/book_types/1"><h2>书名</h2></a>
+          <p>菜鸟教程，学的不仅是技术，更是梦想！！！菜鸟教程，学的不仅是技术，更是梦想！！！菜鸟教程，学的不仅是技术，更是梦想！！！</p>
+          <br>
+        </div>
+    </div>
+  </div>
+  <div class="row">
+
+    <!-- <div class="col-sm-3 col-center-block">
+    <ul class="pagination">
+      <li class="page-item disabled"><a class="page-link" id="page-0" href="javascript:void(0);">Previous</a></li>
+      <li class="page-item"><a class="page-link" id="page-1" href="javascript:void(0);">1</a></li>
+      <li class="page-item active"><a class="page-link" id="page-2" href="javascript:void(0);">2</a></li>
+      <li class="page-item"><a class="page-link" id="page-3" href="javascript:void(0);">3</a></li>
+      <li class="page-item"><a class="page-link" id="page-4" href="javascript:void(0);">Next</a></li>
+    </ul>
+  </div> -->
+  </div>
+</div>
+</div>
+
+<!-- <div class="text-center float-sm-right" style="margin-bottom:0;background-color:#bbb">
+  <p>@技术支持 巴啦啦啦</p>
+</div> -->
+
+</body>
+</html>

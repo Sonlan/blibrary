@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  book_name: MyString
+  introduction: MyText
+  img_paths: MyText
+  catalog: MyText
+  status: 0
+
+two:
+  id: 2
+  book_name: MyString
+  introduction: MyText
+  img_paths: MyText
+  catalog: MyText
+  status: 0

@@ -1,0 +1,33 @@
+<body>
+  <div class="container">
+    <br><br>
+    <%= form_tag('/console/create_book_type',multipart: true) do %>
+      <!-- <input type="file" name="test-img"/> -->
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <%= label_tag 'cover_img','封面图'%><br>
+            <%= image_tag("nothing.jpeg",class:"img-fluid") %>
+            <input type="file" name="img" accept="image/png,image/gif,image/jpeg"/>
+            <br>
+            <button id= 'btn-add-book' type="submit" class="btn btn-info form-control">新增书籍</button>
+          </div>
+        </div>
+        <div class="col-sm-8">
+          <div class="form-group">
+            <%= label_tag 'book_name','书名'%>
+            <%= text_field_tag 'book_name',nil,placeholder:'input book name here',class: 'form-control'%>
+          </div>
+          <div class="form-group">
+            <%= label_tag 'introduction','书籍简介'%>
+            <%= text_area_tag 'introduction',nil,placeholder:'input book introduction here',rows:5,class: 'form-control'%>
+          </div>
+          <div class="form-group">
+            <%= label_tag 'catalog','目录'%>
+            <%= text_area_tag 'catalog',nil,placeholder:'input book catalog here',rows:10, class: 'form-control'%>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</body>

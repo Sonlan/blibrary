@@ -1,0 +1,28 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.6
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+    volumes:
+      - "${PWD}/docker_data/mysql/:/var/lib/mysql"
+  web:
+    tty: true
+    stdin_open: true
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      - .:/myapp
+    ports:
+      - "8000:3000"
+    depends_on:
+      - db
+  crontab:
+    build: .
+    command: /bin/bash /myapp/bin/cron.sh
+    volumes:
+      - .:/myapp
+    depends_on:
+      - db
