@@ -276,7 +276,6 @@ DEPENDENCIES
   mina-puma
   mina-whenever
   mysql2 (>= 0.3.13, < 0.5)
-  omniauth
   omniauth-oauth2
   puma
   rails (= 4.2.10)

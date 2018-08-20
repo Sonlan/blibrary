@@ -28,7 +28,6 @@ gem 'carrierwave', '~> 1.0'
 gem 'kaminari'
 gem 'rest-client', '~> 2.0', '>= 2.0.2'
 gem 'whenever', require: false
-gem 'omniauth'
 gem 'omniauth-oauth2'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
