@@ -1,7 +1,7 @@
 module OmniAuth
   module Strategies
     class Bauth < OmniAuth::Strategies::OAuth2
-      option :client_options, { site: Rails.configuration.setting[:gcac][:site].to_s }
+      option :client_options, { site: Rails.configuration.setting[:auth][:site].to_s }
 
       uid do
         raw_info['id']

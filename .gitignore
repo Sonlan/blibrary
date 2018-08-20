@@ -1,0 +1,10 @@
+.git/*
+.*
+config/setting.yml
+config/secrets.yml
+config/database.yml
+log/*
+tmp/*
+
+
+!.gitignore

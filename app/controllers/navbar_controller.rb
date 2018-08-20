@@ -15,7 +15,7 @@ class NavbarController < ApplicationController
 
   def logout
     sign_out
-    redirect_to Rails.configuration.setting[:gcac][:get_logout_api]
+    redirect_to Rails.configuration.setting[:auth][:get_logout_api]
   end
 
   # 登录逻辑
