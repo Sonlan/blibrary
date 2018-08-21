@@ -1,7 +1,10 @@
 module OmniAuth
   module Strategies
     class Bauth < OmniAuth::Strategies::OAuth2
-      option :client_options, { site: Rails.configuration.setting[:auth][:site].to_s }
+      option :client_options, {
+        site: Rails.configuration.setting[:auth][:site],
+        redirect_uri: Rails.configuration.setting[:auth][:redirect_uri]
+      }
 
       uid do
         raw_info['id']
