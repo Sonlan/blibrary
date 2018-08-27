@@ -3,6 +3,8 @@
 config/setting.yml
 config/secrets.yml
 config/database.yml
+config/puma.rb
+config/deploy.rb
 log/*
 tmp/*
 

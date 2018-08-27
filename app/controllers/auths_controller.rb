@@ -11,6 +11,6 @@ class AuthsController < ApplicationController
                           permission: User::USER)
     end
     sign_in(user)
-    redirect_to session.delete(:return_to) || root_path
+    redirect_to root_path
   end
 end
