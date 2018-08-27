@@ -4,6 +4,7 @@ module Authenticate
   def sign_in(user)
     session[:status] = CallCode::SUCCESS
     session[:user_id] = user.id
+    session[:user_name] = user.user_name
     session[:expires_at] = Time.current + 15.minutes
   end
 

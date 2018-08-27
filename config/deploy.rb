@@ -12,12 +12,14 @@ require 'mina/puma'
 
 set :application_name, 'blibrary'
 # set :domain, 'ec2-54-159-170-91.compute-1.amazonaws.com'
+#set :domain, '127.0.0.1'
 set :domain, '10.32.7.218'
 set :deploy_to, '/apps/blibrary'
 set :repository, 'https://github.com/Sonlan/blibrary'
 set :branch, 'master'
 
 set :user, 'slanf'          # Username in the server to SSH to.
+# set :port, '1234'
 set :port, '222'           # SSH port number.
 # Optional settings:
 # set :user, 'deploy'          # Username in the server to SSH to.
@@ -46,12 +48,12 @@ end
 # Put any custom commands you need to run at setup
 # All paths in `shared_dirs` and `shared_paths` will be created on their own.
 task :setup do
-  command %{rbenv install 2.3.0 --skip-existing}
   command %(mkdir -p "#{:deploy_to}/#{:shared_path}/upload_file")
   command %(mkdir -p "#{:deploy_to}/#{:shared_path}/tmp/sockets")
   command %(chmod g+rx,u+rwx "#{:deploy_to}/#{:shared_path}/tmp/sockets")
   command %(mkdir -p "#{:deploy_to}/#{:shared_path}/tmp/pids")
   command %(chmod g+rx,u+rwx "#{:deploy_to}/#{:shared_path}/tmp/pids")
+  command %[mkdir -p "#{fetch(:shared_path)}/config"]
 
   # command %[touch "#{fetch(:shared_path)}/config/database.yml"]
   # command %[touch "#{fetch(:shared_path)}/config/secrets.yml"]

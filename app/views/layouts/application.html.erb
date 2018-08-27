@@ -5,10 +5,11 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 <body>
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <a class="navbar-brand" href="/book_types">导航</a>
+    <!-- <a class="navbar-brand" href="/book_types">导航</a> -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -22,7 +23,7 @@
             <a class="nav-link" href="/navbar/my_center">个人中心</a>
           </li>
         <%end %>
-        <% if session[:status].present? && session[:user_id]==1%>
+        <% if admin? %>
           <li class="nav-item">
             <a class="nav-link" href="/console/books_manage">控制台</a>
           </li>
@@ -32,7 +33,7 @@
     <% if session[:status].present?%>
       <div class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-          系统
+          <%= session[:user_name]%>
         </a>
         <div class="dropdown-menu">
           <a class="dropdown-item" href="/navbar/messages">站内信</a>
