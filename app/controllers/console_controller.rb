@@ -46,7 +46,6 @@ class ConsoleController < ApplicationController
   def create_book_type
     uploader = AvatarUploader.new
     uploader.store!(params[:img])
-    byebug
     paths = uploader.thumb.url.split('upload_file')
     img_path = "/upload_file#{paths.last}"
     # path = uploader.retrieve_from_store!(uploader.filename)
