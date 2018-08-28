@@ -46,12 +46,17 @@ class ConsoleController < ApplicationController
   def create_book_type
     uploader = AvatarUploader.new
     uploader.store!(params[:img])
+    byebug
+    paths = uploader.thumb.url.split('upload_file')
+    img_path = "/upload_file#{paths.last}"
     # path = uploader.retrieve_from_store!(uploader.filename)
     BookType.create!(book_name: params[:book_name],
                      introduction: params[:introduction],
                      catalog: params[:catalog],
                      status: BookType::READY_STATUS,
-                     img_paths: "/upload_file/#{uploader.filename}")
+                     # img_paths: "/upload_file/#{uploader.filename}")
+                     img_paths: img_path
+                   )
     redirect_to '/console/books_manage'
   end
 
@@ -78,7 +83,7 @@ class ConsoleController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def check_role
     user_id = session[:user_id]
-    render '/navbar/login' unless user_id.present? &&
+    redirect_to '/auth/bauth' unless user_id.present? &&
                                   user_id == 1 &&
                                   session[:expires_at] > Time.current
   end
