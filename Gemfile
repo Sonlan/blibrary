@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '3.1.7'
 gem 'bootstrap'
 gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
 gem 'kaminari'
 gem 'rest-client', '~> 2.0', '>= 2.0.2'
 gem 'whenever', require: false

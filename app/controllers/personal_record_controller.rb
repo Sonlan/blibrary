@@ -25,7 +25,7 @@ class PersonalRecordController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def check_role
     user_id = session[:user_id]
-    render '/navbar/login' unless user_id.present? &&
+    redirect_to '/auth/bauth' unless user_id.present? &&
                                   session[:expires_at] > Time.current
   end
 end
